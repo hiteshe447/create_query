@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Upload IDs</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        textarea {
+            width: 100%;
+            height: 200px;
+            margin-bottom: 20px;
+        }
+        .output {
+            margin-top: 20px;
+            background: #f8f9fa;
+            padding: 10px;
+            border: 1px solid #ddd;
+        }
+    </style>
+</head>
+<body>
+    <h1>Upload IDs</h1>
+    <form action="/process-ids" method="POST">
+        <textarea name="ids" placeholder="Enter your IDs here, one per line"></textarea>
+        <button type="submit">Submit</button>
+    </form>
+
+    <% if (formattedIds) { %>
+        <div class="output">
+            <h3>Formatted IDs:</h3>
+            <pre><%= formattedIds %></pre>
+            <a href="/download" download><button>Download File</button></a>
+        </div>
+    <% } %>
+</body>
+</html>
